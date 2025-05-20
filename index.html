@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Lokesh Lankalapalli | Cybersecurity Portfolio
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body { font-family: 'Inter', sans-serif; background-color: #0f172a; }
+    .section-heading { color: #38bdf8; }
+    .card {
+      background-color: #1e293b;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .hidden { display: none; }
+    .toggle-hint { font-size: 0.875rem; color: #94a3b8; }
+    .fade-enter {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .fade-enter-active {
+      opacity: 1;
+      max-height: 500px;
+    }
+   .cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.project-toggle::after {
+  content: '▸';
+  float: right;
+  transition: transform 0.3s ease;
+}
+.project-toggle.open::after {
+  transform: rotate(90deg);
+}
+  </style>
+  <script>
+   function toggleDescription(id) {
+      const desc = document.getElementById(id);
+      desc.classList.toggle('hidden');
+      desc.classList.toggle('fade-enter');
+      setTimeout(() => {
+        desc.classList.toggle('fade-enter-active');
+      }, 10);
+    }
+   // Fade-in on scroll
+document.addEventListener('DOMContentLoaded', () => {
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  faders.forEach(el => observer.observe(el));
+});
+
+// Enhance project toggle with arrow rotation
+function toggleDescription(id) {
+  const desc = document.getElementById(id);
+  const card = desc.parentElement.querySelector('h3');
+  desc.classList.toggle('hidden');
+  desc.classList.toggle('fade-enter');
+  setTimeout(() => {
+    desc.classList.toggle('fade-enter-active');
+  }, 10);
+  card.classList.toggle('open');
+}
+  </script>
+ </head>
+ <body class="text-gray-100">
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-900 shadow-md sticky top-0 z-50 py-4">
+   <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+     <a class="hover:text-blue-300 transition" href="#about">About</a>
+     <a class="hover:text-blue-300 transition" href="#education">Education</a>
+     <a class="hover:text-blue-300 transition" href="#skills">Skills</a>
+     <a class="hover:text-blue-300 transition" href="#experience">Experience</a>
+     <a class="hover:text-blue-300 transition" href="#certifications">Certifications</a>
+     <a class="hover:text-blue-300 transition" href="#projects">Projects</a>
+     <a class="hover:text-blue-300 transition" href="#contact">Contact</a>
+    </div>
+   </div>
+  </nav>
+  <!-- Hero Section -->
+  <header class="relative overflow-hidden py-20 text-center bg-gray-800">
+   <div class="relative z-10">
+    <h2 class="text-5xl font-bold text-white mb-4">Lokesh Lankalapalli</h2>
+    <p class="text-lg text-blue-300">MS IT @ ASU | CEHv11 | Security+ | eJPTv2</p>
+    <a class="mt-6 inline-block px-6 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-400 transition" href="#contact">Let's Connect</a>
+    <a class="mt-4 ml-4 inline-block px-4 py-2 border border-blue-400 text-blue-400 rounded hover:bg-blue-500 hover:text-white transition" href="/mnt/data/Lokesh Lankalapalli Resume.pdf" target="_blank">Download Resume</a>
+   </div>
+  </header>
+  
+  <!-- About Me -->
+  <section class="px-6 py-12 max-w-4xl mx-auto" id="about">
+   <h2 class="text-3xl font-semibold mb-6 border-b border-blue-400 pb-2 section-heading">About Me</h2>
+   <p class="text-lg leading-relaxed text-gray-300">
+    I'm Lokesh Lankalapalli, a passionate cybersecurity professional with experience in Vulnerability Assessment and Penetration Testing (VAPT). I hold certifications in CEHv11, Security+, and eJPTv2 and am currently pursuing my MS in Information Technology - Security at ASU.
+   </p>
+  </section>
+
+  
+  <section class="px-6 py-12 max-w-4xl mx-auto" id="education">
+   <h2 class="text-3xl font-semibold mb-6 section-heading">Education</h2>
+   <div class="space-y-6">
+    <div class="card">
+     <h3 class="text-xl font-bold text-white">Arizona State University</h3>
+     <p class="text-sm text-gray-300">Master of Science in Information Technology – Security</p>
+     <p class="text-sm text-gray-400">Expected Graduation: 2025</p>
+     <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
+      <li><strong>Spring 2024:</strong></li>
+      <li>IFT 510: Principles of Computer and Information Technology Architecture</li>
+      <li>IFT 520: Advanced Information Systems Security</li>
+      <li>IFT 540: Information Systems Development</li>
+      <li><strong>Fall 2024:</strong></li>
+      <li>IFT 530: Advanced Database Management Systems</li>
+      <li>IFT 560: Cloud Architecture for Information Technology</li>
+      <li>IFT 543: Security Compliance for Information Technology</li>
+      <li><strong>Spring 2025:</strong></li>
+      <li>IFT 523: Network Forensics for Information Technology</li>
+      <li>IFT 562: Cloud Security and Operations for Information</li>
+      <li>TEM 598: Technology Innovation Lab (Collaborated with Honeywell)</li>
+     </ul>
+    </div>
+    <div class="card">
+     <h3 class="text-xl font-bold text-white">Jawaharlal Nehru Technological University</h3>
+     <p class="text-sm text-gray-300">Bachelor of Technology in Computer Science and Engineering</p>
+     <p class="text-sm text-gray-400">Graduated: 2022</p>
+    </div>
+   </div>
+  </section>
+  <!-- Skills -->
+  <section class="px-6 py-12 max-w-4xl mx-auto" id="skills">
+   <h2 class="text-3xl font-semibold mb-6 section-heading">Technical Skills</h2>
+   <div class="grid grid-cols-1 gap-4 text-lg text-gray-200">
+    <div class="card">Programming: Python, C, C++, HTML, CSS, JavaScript, SQL</div>
+    <div class="card">Platforms: HackTheBox (Hacker Rank), TryHackMe (Top 3 in ASU Workspace)</div>
+    <div class="card">Tools: Nmap, Metasploit, Burp Suite, Wireshark, Netcat, Nessus, Nikto, John the Ripper, Ettercap, Hashcat, SIEM</div>
+    <div class="card">Security: Network Protocols (TCP/IP protocol suite), OSI Layer, Vulnerability Analysis, Pentesting, Web Security, Network Security, SOC, AWS, Vulnerability Assessment, Incident Response, Security Controls, Firewall</div>
+   </div>
+  </section>
+  <!-- Certifications -->
+  <section class="px-6 py-12 max-w-4xl mx-auto" id="certifications">
+   <h2 class="text-3xl font-semibold mb-6 section-heading">Certifications</h2>
+   <div class="grid gap-4 md:grid-cols-2 fade-in">
+    <div class="card cert-card">
+     <h4 class="font-bold text-lg mb-1 text-white">EC Council CEHv11</h4>
+     <p class="text-gray-300 text-sm">Certified Ethical Hacker</p>
+    </div>
+    <div class="card cert-card">
+     <h4 class="font-bold text-lg mb-1 text-white">CompTIA Security+</h4>
+     <p class="text-gray-300 text-sm">Cybersecurity Fundamentals</p>
+    </div>
+    <div class="card cert-card">
+     <h4 class="font-bold text-lg mb-1 text-white">eJPTv2</h4>
+     <p class="text-gray-300 text-sm">Junior Penetration Tester</p>
+    </div>
+    <div class="card cert-card">
+     <h4 class="font-bold text-lg mb-1 text-white">Microsoft MTA Security Fundamentals</h4>
+     <p class="text-gray-300 text-sm">Security Concepts by Microsoft</p>
+    </div>
+   </div>
+  </section>
+  <!-- Experience -->
+  <section class="px-6 py-12 max-w-4xl mx-auto" id="experience">
+   <h2 class="text-3xl font-semibold mb-6 section-heading">Experience</h2>
+   <div class="space-y-8">
+    <div class="card">
+     <h3 class="text-xl font-bold text-white">CyberSmith Secure – VAPT Intern (Remote, India)</h3>
+     <p class="text-sm text-gray-300">Sep 2023 – Dec 2023</p>
+     <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
+      <li>Created vulnerability reports for government websites; identified XSS and HTML Injection flaws.</li>
+      <li>Performed security testing on the HP website to mitigate text injection vulnerabilities.</li>
+      <li>Utilized Burp Suite and Nessus for vulnerability scanning and monitoring.</li>
+     </ul>
+    </div>
+    <div class="card">
+     <h3 class="text-xl font-bold text-white">AICTE (Supported by PALO ALTO) – Cybersecurity Intern</h3>
+     <p class="text-sm text-gray-300">Oct 2021 – Dec 2021</p>
+     <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
+      <li>Engaged in threat detection and response simulations using Wireshark.</li>
+      <li>Assisted in identifying and mitigating potential vulnerabilities.</li>
+     </ul>
+    </div>
+   </div>
+  </section>
+  <!-- Projects -->
+  <section class="px-6 py-12 max-w-4xl mx-auto" id="projects">
+   <h2 class="text-3xl font-semibold mb-6 section-heading">Projects</h2>
+   <div class="space-y-4">
+    <div class="card">
+     <h3 class="text-xl font-bold text-white">Web Application Vulnerability Scanner</h3>
+     <p class="text-sm text-gray-300 mt-2">Developed a Python-based web application vulnerability scanner to identify common vulnerabilities such as SQL injection, cross-site scripting (XSS), and insecure direct object references (IDOR). Implemented automated crawling functionality to discover all accessible pages and endpoints. Integrated detection for SQLi, XSS, and IDOR using custom scanning algorithms. Produced detailed vulnerability reports with severity ratings and remediation suggestions.</p>
+    </div>
+    <div class="card">
+     <h3 class="text-xl font-bold text-white">Security Information and Event Management (SIEM)</h3>
+     <p class="text-sm text-gray-300 mt-2">Designed and implemented a centralized SIEM system using the ELK stack (Elasticsearch, Logstash, and Kibana). Collected and analyzed logs from multiple sources to detect potential incidents. Built custom dashboards in Kibana for real-time tracking of security metrics. Created automated correlation rules to generate alerts for threats based on log patterns, enhancing incident detection and response.</p>
+    </div>
+   </div>
+  </section>
+  <!-- Contact -->
+  <section class="px-6 py-12 max-w-4xl mx-auto" id="contact">
+   <h2 class="text-3xl font-semibold mb-6 section-heading">Contact</h2>
+   <div class="space-y-2 text-lg text-gray-300">
+    <p>Email: <a class="text-blue-400 hover:underline" href="mailto:lankalapallilokesh20@gmail.com">lankalapallilokesh20@gmail.com</a></p>
+    <p>LinkedIn: <a class="text-blue-400 hover:underline" href="https://linkedin.com/in/lokesh-lankalapalli-549a10232" target="_blank">linkedin.com/in/lokesh-lankalapalli-549a10232</a></p>
+   </div>
+  </section>
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-gray-500 border-t border-gray-700 mt-12">
+   © 2025 Lokesh Lankalapalli. All rights reserved.
+  </footer>
+ </body>
+</html>
