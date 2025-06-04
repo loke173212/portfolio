@@ -155,6 +155,37 @@ function toggleDescription(id) {
     </div>
    </div>
   </section>
+
+<!-- Experience (moved below Education and updated) -->
+<section class="px-6 py-12 max-w-4xl mx-auto" id="experience">
+ <h2 class="text-3xl font-semibold mb-6 section-heading">Experience</h2>
+ <div class="space-y-8">
+<div class="card">
+   <h3 class="text-xl font-bold text-white">Application Security Developer</h3>
+   <p class="text-sm text-gray-300">MaxGPT – AI-Powered Educational Chatbot</p>
+   <p class="text-sm text-gray-400">Jan 2025 – Present | Arizona State University | Python · JavaScript · CAS · MySQL · OpenAI GPT-4</p>
+   <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
+    <li>Designed and implemented custom session management logic from scratch to maintain user state securely across the frontend and backend.</li>
+    <li>Integrated ASU’s Central Authentication Service (CAS) for single sign-on, enabling seamless and secure login via ASURITE ID.</li>
+    <li>In Version 1.0, developed manual session validation mechanisms, requiring users to re-verify their session after page reloads to ensure session integrity.</li>
+    <li>In Version 1.1, transitioned to an automated session verification model, improving both security and user experience by syncing session status on app load and during chat activity.</li>
+    <li>Ensured all key routes and features were gated behind active session checks, reducing risk of unauthorized access.</li>
+    <li>Collaborated cross-functionally with backend developer to enforce consistent session and authentication rules across the stack.</li>
+   </ul>
+  </div>  
+<div class="card">
+   <h3 class="text-xl font-bold text-white">CyberSmith Secure – VAPT Intern (Remote, India)</h3>
+   <p class="text-sm text-gray-300">Sep 2023 – Dec 2023</p>
+   <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
+    <li>Created vulnerability reports for government websites; identified XSS and HTML Injection flaws.</li>
+    <li>Performed security testing on the HP website to mitigate text injection vulnerabilities.</li>
+    <li>Utilized Burp Suite and Nessus for vulnerability scanning and monitoring.</li>
+   </ul>
+  </div>
+  
+ </div>
+</section>
+
   <!-- Skills -->
   <section class="px-6 py-12 max-w-4xl mx-auto" id="skills">
    <h2 class="text-3xl font-semibold mb-6 section-heading">Technical Skills</h2>
@@ -166,64 +197,70 @@ function toggleDescription(id) {
    </div>
   </section>
   <!-- Certifications -->
-  <section class="px-6 py-12 max-w-4xl mx-auto" id="certifications">
-   <h2 class="text-3xl font-semibold mb-6 section-heading">Certifications</h2>
-   <div class="grid gap-4 md:grid-cols-2 fade-in">
-    <div class="card cert-card">
-     <h4 class="font-bold text-lg mb-1 text-white">EC Council CEHv11</h4>
-     <p class="text-gray-300 text-sm">Certified Ethical Hacker</p>
-    </div>
-    <div class="card cert-card">
-     <h4 class="font-bold text-lg mb-1 text-white">CompTIA Security+</h4>
-     <p class="text-gray-300 text-sm">Cybersecurity Fundamentals</p>
-    </div>
-    <div class="card cert-card">
-     <h4 class="font-bold text-lg mb-1 text-white">eJPTv2</h4>
-     <p class="text-gray-300 text-sm">Junior Penetration Tester</p>
-    </div>
-    <div class="card cert-card">
-     <h4 class="font-bold text-lg mb-1 text-white">Microsoft MTA Security Fundamentals</h4>
-     <p class="text-gray-300 text-sm">Security Concepts by Microsoft</p>
-    </div>
-   </div>
-  </section>
-  <!-- Experience -->
-  <section class="px-6 py-12 max-w-4xl mx-auto" id="experience">
-   <h2 class="text-3xl font-semibold mb-6 section-heading">Experience</h2>
-   <div class="space-y-8">
-    <div class="card">
-     <h3 class="text-xl font-bold text-white">CyberSmith Secure – VAPT Intern (Remote, India)</h3>
-     <p class="text-sm text-gray-300">Sep 2023 – Dec 2023</p>
-     <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
-      <li>Created vulnerability reports for government websites; identified XSS and HTML Injection flaws.</li>
-      <li>Performed security testing on the HP website to mitigate text injection vulnerabilities.</li>
-      <li>Utilized Burp Suite and Nessus for vulnerability scanning and monitoring.</li>
-     </ul>
-    </div>
-    <div class="card">
-     <h3 class="text-xl font-bold text-white">AICTE (Supported by PALO ALTO) – Cybersecurity Intern</h3>
-     <p class="text-sm text-gray-300">Oct 2021 – Dec 2021</p>
-     <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
-      <li>Engaged in threat detection and response simulations using Wireshark.</li>
-      <li>Assisted in identifying and mitigating potential vulnerabilities.</li>
-     </ul>
-    </div>
-   </div>
-  </section>
-  <!-- Projects -->
-  <section class="px-6 py-12 max-w-4xl mx-auto" id="projects">
-   <h2 class="text-3xl font-semibold mb-6 section-heading">Projects</h2>
-   <div class="space-y-4">
-    <div class="card">
-     <h3 class="text-xl font-bold text-white">Web Application Vulnerability Scanner</h3>
-     <p class="text-sm text-gray-300 mt-2">Developed a Python-based web application vulnerability scanner to identify common vulnerabilities such as SQL injection, cross-site scripting (XSS), and insecure direct object references (IDOR). Implemented automated crawling functionality to discover all accessible pages and endpoints. Integrated detection for SQLi, XSS, and IDOR using custom scanning algorithms. Produced detailed vulnerability reports with severity ratings and remediation suggestions.</p>
-    </div>
-    <div class="card">
-     <h3 class="text-xl font-bold text-white">Security Information and Event Management (SIEM)</h3>
-     <p class="text-sm text-gray-300 mt-2">Designed and implemented a centralized SIEM system using the ELK stack (Elasticsearch, Logstash, and Kibana). Collected and analyzed logs from multiple sources to detect potential incidents. Built custom dashboards in Kibana for real-time tracking of security metrics. Created automated correlation rules to generate alerts for threats based on log patterns, enhancing incident detection and response.</p>
-    </div>
-   </div>
-  </section>
+<section class="px-6 py-12 max-w-4xl mx-auto" id="certifications">
+ <h2 class="text-3xl font-semibold mb-6 section-heading">Certifications</h2>
+ <div class="grid gap-4 md:grid-cols-2 fade-in">
+  <div class="card cert-card">
+   <h4 class="font-bold text-lg mb-1 text-white">EC Council CEHv11</h4>
+   <p class="text-gray-300 text-sm">Certified Ethical Hacker</p>
+   <a href="https://drive.google.com/file/d/1Qu0ilg0lXZuh7dSaPLyh2tFxd1R8BfGw/view?usp=sharing" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
+  </div>
+  <div class="card cert-card">
+   <h4 class="font-bold text-lg mb-1 text-white">CompTIA Security+</h4>
+   <p class="text-gray-300 text-sm">Cybersecurity Fundamentals</p>
+   <a href="https://www.credly.com/badges/0b80399b-e129-44ea-9ade-2cda3fec7f38/linked_in_profile" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
+  </div>
+  <div class="card cert-card">
+   <h4 class="font-bold text-lg mb-1 text-white">eJPTv2</h4>
+   <p class="text-gray-300 text-sm">Junior Penetration Tester</p>
+   <a href="https://certs.ine.com/d22aee7f-4810-426d-90bc-ef5eb9f9f6f7#acc.vgu6AxDZ" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
+  </div>
+  <div class="card cert-card">
+   <h4 class="font-bold text-lg mb-1 text-white">Microsoft MTA Security Fundamentals</h4>
+   <p class="text-gray-300 text-sm">Security Concepts by Microsoft</p>
+   <a href="https://www.credly.com/badges/4086bf98-812d-481e-8148-9bb60ec23537/linked_in_profile" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
+  </div>
+ </div>
+</section>
+
+
+<!-- Projects -->
+<section class="px-6 py-12 max-w-4xl mx-auto" id="projects">
+ <h2 class="text-3xl font-semibold mb-6 section-heading">Projects</h2>
+ <div class="space-y-4">
+  <div class="card">
+   <h3 class="text-xl font-bold text-white">ThreatOps Lab – Real-Time Detection Pipeline using AWS and Splunk</h3>
+   <p class="text-sm text-gray-400">Role: Cybersecurity Analyst | Type: Hands-On Threat Detection Simulation | Date: May 2025</p>
+   <p class="text-sm text-gray-300 mt-2">Designed and deployed a full real-time detection pipeline to identify SSH brute-force attacks on an AWS EC2 instance.</p>
+   <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
+    <li>Configured CloudWatch Agent to collect <code>/var/log/secure</code> and stream logs to CloudWatch Logs.</li>
+    <li>Developed an AWS Lambda function to forward logs from CloudWatch to Splunk HEC over a secure Cloudflared tunnel.</li>
+    <li>Simulated attacks using Hydra and Nmap from Kali Linux and validated detection via SPL queries in Splunk.</li>
+    <li>Built visualizations including login outcome pie charts and high-frequency attacker IP reports.</li>
+    <li>Overcame limitations of traditional S3-based log shipping by tunneling HEC endpoints in real time.</li>
+   </ul>
+   <p class="text-sm text-gray-300 mt-2"><strong>Key Technologies:</strong> AWS EC2 · CloudWatch Agent · Lambda (Python) · Splunk HEC · Cloudflared · Hydra · Nmap · SPL · MITRE ATT&CK T1110</p>
+   <a href="https://github.com/loke173212/threatops-aws-splunk-detection" target="_blank" class="inline-block mt-3 text-blue-400 hover:underline text-sm">🔗 View GitHub Repository</a>
+  </div>
+
+  <div class="card">
+   <h3 class="text-xl font-bold text-white">WebRecon – Smart Wordlist & Email Reconnaissance Tool</h3>
+   <p class="text-sm text-gray-400">Associated With: Personal Offensive Security Project | Date: April 2025</p>
+   <p class="text-sm text-gray-300 mt-2">Developed WebRecon, a Python-based tool for intelligent web reconnaissance and OSINT automation. It crawls web pages (including IP-based targets), extracts custom wordlists, scrapes live emails, and smartly guesses potential email addresses using context from page content. Outputs are saved in structured folders for efficient analysis.</p>
+   <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
+    <li>Extracts and formats wordlists from live page content.</li>
+    <li>Performs live email scraping and smart guessing using NLP-based heuristics.</li>
+    <li>Supports scanning of domains, IPs, and local targets with output folder customization.</li>
+    <li>Designed CLI interface with flexible options for limit, depth, and output naming.</li>
+   </ul>
+   <p class="text-sm text-gray-300 mt-2"><strong>Key Technologies:</strong> Python · BeautifulSoup · argparse · Regex · Email Enumeration · OSINT · Web Crawling</p>
+   <a href="https://github.com/loke173212/WebRecon" target="_blank" class="inline-block mt-3 text-blue-400 hover:underline text-sm">🔗 View GitHub Repository</a>
+  </div>
+ </div>
+</section>
+
+    
+
   <!-- Contact -->
   <section class="px-6 py-12 max-w-4xl mx-auto" id="contact">
    <h2 class="text-3xl font-semibold mb-6 section-heading">Contact</h2>
