@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -220,6 +221,12 @@ function toggleDescription(id) {
    <p class="text-gray-300 text-sm">Security Concepts by Microsoft</p>
    <a href="https://www.credly.com/badges/4086bf98-812d-481e-8148-9bb60ec23537/linked_in_profile" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
   </div>
+<div class="card cert-card">
+  <h4 class="font-bold text-lg mb-1 text-white">AWS Certified Solutions Architect – Associate</h4>
+  <p class="text-gray-300 text-sm">Cloud Architecture & Deployment</p>
+  <a href="https://www.credly.com/badges/2d52ab90-8fdf-42b5-b603-473f3c948dbe/public_url" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
+</div>
+
  </div>
 </section>
 
@@ -228,6 +235,22 @@ function toggleDescription(id) {
 <section class="px-6 py-12 max-w-4xl mx-auto" id="projects">
  <h2 class="text-3xl font-semibold mb-6 section-heading">Projects</h2>
  <div class="space-y-4">
+<div class="card">
+  <h3 class="text-xl font-bold text-white">Snort-Cowrie Intrusion Prevention & Deception Project</h3>
+  <p class="text-sm text-gray-400">Role: Security Engineer | Date: Jun 2025</p>
+  <p class="text-sm text-gray-300 mt-2">
+    Designed and deployed a full-stack intrusion prevention and deception system on an AWS EC2 instance using Snort3 and Cowrie honeypot.
+  </p>
+  <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
+    <li>Developed custom Snort rules to drop port scans (≥15/60s) and SSH brute-force attempts (≥20/60s) with real-time packet blocking via NFQUEUE.</li>
+    <li>Created a unified <code>auto.sh</code> script to automate Snort IPS mode deployment, Cowrie startup, iptables rule injection, and graceful cleanup.</li>
+    <li>Simulated attacks using Nmap and Hydra from a Kali machine and validated rule effectiveness by monitoring live drops and honeypot interactions.</li>
+    <li>Resolved false positives and tuning challenges to maintain service availability (e.g., port 80) while actively mitigating malicious behavior.</li>
+  </ul>
+  <p class="text-sm text-gray-300 mt-2"><strong>Key Technologies:</strong> Snort3 · Cowrie · IPTables · Bash Scripting · AWS EC2 · Hydra · Nmap · Honeypot · Intrusion Prevention</p>
+  <a href="https://github.com/loke173212/Snort-Cowrie-Intrusion-Prevention-Deception-Project" target="_blank" class="inline-block mt-3 text-blue-400 hover:underline text-sm">🔗 View GitHub Repository</a>
+</div>
+
   <div class="card">
    <h3 class="text-xl font-bold text-white">ThreatOps Lab – Real-Time Detection Pipeline using AWS and Splunk</h3>
    <p class="text-sm text-gray-400">Role: Cybersecurity Analyst | Type: Hands-On Threat Detection Simulation | Date: May 2025</p>
