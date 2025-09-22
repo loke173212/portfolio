@@ -1,300 +1,648 @@
-
 <!DOCTYPE html>
-<html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Lokesh Lankalapalli | Cybersecurity Portfolio
-  </title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body { font-family: 'Inter', sans-serif; background-color: #0f172a; }
-    .section-heading { color: #38bdf8; }
-    .card {
-      background-color: #1e293b;
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    .hidden { display: none; }
-    .toggle-hint { font-size: 0.875rem; color: #94a3b8; }
-    .fade-enter {
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .fade-enter-active {
-      opacity: 1;
-      max-height: 500px;
-    }
-   .cert-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.project-toggle::after {
-  content: '▸';
-  float: right;
-  transition: transform 0.3s ease;
-}
-.project-toggle.open::after {
-  transform: rotate(90deg);
-}
-  </style>
-  <script>
-   function toggleDescription(id) {
-      const desc = document.getElementById(id);
-      desc.classList.toggle('hidden');
-      desc.classList.toggle('fade-enter');
-      setTimeout(() => {
-        desc.classList.toggle('fade-enter-active');
-      }, 10);
-    }
-   // Fade-in on scroll
-document.addEventListener('DOMContentLoaded', () => {
-  const faders = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  faders.forEach(el => observer.observe(el));
-});
-
-// Enhance project toggle with arrow rotation
-function toggleDescription(id) {
-  const desc = document.getElementById(id);
-  const card = desc.parentElement.querySelector('h3');
-  desc.classList.toggle('hidden');
-  desc.classList.toggle('fade-enter');
-  setTimeout(() => {
-    desc.classList.toggle('fade-enter-active');
-  }, 10);
-  card.classList.toggle('open');
-}
-  </script>
- </head>
- <body class="text-gray-100">
-  <!-- Navigation Bar -->
-  <nav class="bg-gray-900 shadow-md sticky top-0 z-50 py-4">
-   <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-     <a class="hover:text-blue-300 transition" href="#about">About</a>
-     <a class="hover:text-blue-300 transition" href="#education">Education</a>
-     <a class="hover:text-blue-300 transition" href="#experience">Experience</a>
-     <a class="hover:text-blue-300 transition" href="#skills">Skills</a>
-     <a class="hover:text-blue-300 transition" href="#certifications">Certifications</a>
-     <a class="hover:text-blue-300 transition" href="#projects">Projects</a>
-     <a class="hover:text-blue-300 transition" href="#contact">Contact</a>
-    </div>
-   </div>
-  </nav>
-  <!-- Hero Section -->
-  <header class="relative overflow-hidden py-20 text-center bg-gray-800">
-   <div class="relative z-10">
-    <h2 class="text-5xl font-bold text-white mb-4">Lokesh Lankalapalli</h2>
-    <p class="text-lg text-blue-300">MS IT @ ASU | CEHv11 | Security+ | eJPTv2</p>
-    <a class="mt-6 inline-block px-6 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-400 transition" href="#contact">Let's Connect</a>
-    <a class="mt-4 ml-4 inline-block px-4 py-2 border border-blue-400 text-blue-400 rounded hover:bg-blue-500 hover:text-white transition" href="https://loke173212.github.io/portfolio/Lokesh_Lankalapalli_Resume.pdf" target="_blank">Download Resume</a>
-   </div>
-  </header>
-  
-  <!-- About Me -->
-  <section class="px-6 py-12 max-w-4xl mx-auto" id="about">
-   <h2 class="text-3xl font-semibold mb-6 border-b border-blue-400 pb-2 section-heading">About Me</h2>
-   <p class="text-lg leading-relaxed text-gray-300">
-    I'm Lokesh Lankalapalli, a passionate cybersecurity professional with experience in Vulnerability Assessment and Penetration Testing (VAPT). I hold certifications in CEHv11, Security+, and eJPTv2 and am currently pursuing my MS in Information Technology - Security at ASU.
-   </p>
-  </section>
-
-  
-  <section class="px-6 py-12 max-w-4xl mx-auto" id="education">
-   <h2 class="text-3xl font-semibold mb-6 section-heading">Education</h2>
-   <div class="space-y-6">
-    <div class="card">
-     <h3 class="text-xl font-bold text-white">Arizona State University</h3>
-     <p class="text-sm text-gray-300">Master of Science in Information Technology – Security</p>
-     <p class="text-sm text-gray-400">Expected Graduation: 2025</p>
-     <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
-      <li><strong>Spring 2024:</strong></li>
-      <li>IFT 510: Principles of Computer and Information Technology Architecture</li>
-      <li>IFT 520: Advanced Information Systems Security</li>
-      <li>IFT 540: Information Systems Development</li>
-      <li><strong>Fall 2024:</strong></li>
-      <li>IFT 530: Advanced Database Management Systems</li>
-      <li>IFT 560: Cloud Architecture for Information Technology</li>
-      <li>IFT 543: Security Compliance for Information Technology</li>
-      <li><strong>Spring 2025:</strong></li>
-      <li>IFT 523: Network Forensics for Information Technology</li>
-      <li>IFT 562: Cloud Security and Operations for Information</li>
-      <li>TEM 598: Technology Innovation Lab (Collaborated with Honeywell)</li>
-     </ul>
-    </div>
-    <div class="card">
-     <h3 class="text-xl font-bold text-white">Jawaharlal Nehru Technological University</h3>
-     <p class="text-sm text-gray-300">Bachelor of Technology in Electronics and Communication Engineering</p>
-     <p class="text-sm text-gray-400">Graduated: 2023</p>
-    </div>
-   </div>
-  </section>
-
-<!-- Experience (moved below Education and updated) -->
-<section class="px-6 py-12 max-w-4xl mx-auto" id="experience">
- <h2 class="text-3xl font-semibold mb-6 section-heading">Experience</h2>
- <div class="space-y-8">
-<div class="card">
-   <h3 class="text-xl font-bold text-white">Application Security Developer</h3>
-   <p class="text-sm text-gray-300">MaxGPT – AI-Powered Educational Chatbot</p>
-   <p class="text-sm text-gray-400">Jan 2025 – Present | Arizona State University | Python · JavaScript · CAS · MySQL · OpenAI GPT-4</p>
-   <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
-    <li>Designed and implemented custom session management logic from scratch to maintain user state securely across the frontend and backend.</li>
-    <li>Integrated ASU’s Central Authentication Service (CAS) for single sign-on, enabling seamless and secure login via ASURITE ID.</li>
-    <li>In Version 1.0, developed manual session validation mechanisms, requiring users to re-verify their session after page reloads to ensure session integrity.</li>
-    <li>In Version 1.1, transitioned to an automated session verification model, improving both security and user experience by syncing session status on app load and during chat activity.</li>
-    <li>Ensured all key routes and features were gated behind active session checks, reducing risk of unauthorized access.</li>
-    <li>Collaborated cross-functionally with backend developer to enforce consistent session and authentication rules across the stack.</li>
-   </ul>
-  </div>  
-<div class="card">
-   <h3 class="text-xl font-bold text-white">CyberSmith Secure – VAPT Intern (Remote, India)</h3>
-   <p class="text-sm text-gray-300">Sep 2023 – Dec 2023</p>
-   <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
-    <li>Created vulnerability reports for government websites; identified XSS and HTML Injection flaws.</li>
-    <li>Performed security testing on the HP website to mitigate text injection vulnerabilities.</li>
-    <li>Utilized Burp Suite and Nessus for vulnerability scanning and monitoring.</li>
-   </ul>
-  </div>
-  
- </div>
-</section>
-
-  <!-- Skills -->
-  <section class="px-6 py-12 max-w-4xl mx-auto" id="skills">
-   <h2 class="text-3xl font-semibold mb-6 section-heading">Technical Skills</h2>
-   <div class="grid grid-cols-1 gap-4 text-lg text-gray-200">
-    <div class="card">Programming: Python, C, C++, HTML, CSS, JavaScript, SQL</div>
-    <div class="card">Platforms: HackTheBox (Hacker Rank), TryHackMe (Top 3 in ASU Workspace)</div>
-    <div class="card">Tools: Nmap, Metasploit, Burp Suite, Wireshark, Netcat, Nessus, Nikto, John the Ripper, Ettercap, Hashcat, SIEM</div>
-    <div class="card">Security: Network Protocols (TCP/IP protocol suite), OSI Layer, Vulnerability Analysis, Pentesting, Web Security, Network Security, SOC, AWS, Vulnerability Assessment, Incident Response, Security Controls, Firewall</div>
-   </div>
-  </section>
-  <!-- Certifications -->
-<section class="px-6 py-12 max-w-4xl mx-auto" id="certifications">
- <h2 class="text-3xl font-semibold mb-6 section-heading">Certifications</h2>
- <div class="grid gap-4 md:grid-cols-2 fade-in">
-  <div class="card cert-card">
-   <h4 class="font-bold text-lg mb-1 text-white">EC Council CEHv11</h4>
-   <p class="text-gray-300 text-sm">Certified Ethical Hacker</p>
-   <a href="https://drive.google.com/file/d/1Qu0ilg0lXZuh7dSaPLyh2tFxd1R8BfGw/view?usp=sharing" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
-  </div>
-  <div class="card cert-card">
-   <h4 class="font-bold text-lg mb-1 text-white">CompTIA Security+</h4>
-   <p class="text-gray-300 text-sm">Cybersecurity Fundamentals</p>
-   <a href="https://www.credly.com/badges/0b80399b-e129-44ea-9ade-2cda3fec7f38/linked_in_profile" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
-  </div>
-  <div class="card cert-card">
-   <h4 class="font-bold text-lg mb-1 text-white">eJPTv2</h4>
-   <p class="text-gray-300 text-sm">Junior Penetration Tester</p>
-   <a href="https://certs.ine.com/d22aee7f-4810-426d-90bc-ef5eb9f9f6f7#acc.vgu6AxDZ" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
-  </div>
-  <div class="card cert-card">
-   <h4 class="font-bold text-lg mb-1 text-white">Microsoft MTA Security Fundamentals</h4>
-   <p class="text-gray-300 text-sm">Security Concepts by Microsoft</p>
-   <a href="https://www.credly.com/badges/4086bf98-812d-481e-8148-9bb60ec23537/linked_in_profile" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
-  </div>
-<div class="card cert-card">
-  <h4 class="font-bold text-lg mb-1 text-white">AWS Certified Solutions Architect – Associate</h4>
-  <p class="text-gray-300 text-sm">Cloud Architecture & Deployment</p>
-  <a href="https://www.credly.com/badges/2d52ab90-8fdf-42b5-b603-473f3c948dbe/public_url" target="_blank" class="mt-2 inline-block px-3 py-1 text-sm text-blue-400 border border-blue-400 rounded hover:bg-blue-500 hover:text-white transition">Verify</a>
-</div>
-
- </div>
-</section>
-
-
-<!-- Projects -->
-<section class="px-6 py-12 max-w-4xl mx-auto" id="projects">
- <h2 class="text-3xl font-semibold mb-6 section-heading">Projects</h2>
- <div class="space-y-4">
-<div class="card">
-  <h3 class="text-xl font-bold text-white">Snort-Cowrie Intrusion Prevention & Deception Project</h3>
-  <p class="text-sm text-gray-400">Role: Security Engineer | Date: Jun 2025</p>
-  <p class="text-sm text-gray-300 mt-2">
-    Designed and deployed a full-stack intrusion prevention and deception system on an AWS EC2 instance using Snort3 and Cowrie honeypot.
-  </p>
-  <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
-    <li>Developed custom Snort rules to drop port scans (≥15/60s) and SSH brute-force attempts (≥20/60s) with real-time packet blocking via NFQUEUE.</li>
-    <li>Created a unified <code>auto.sh</code> script to automate Snort IPS mode deployment, Cowrie startup, iptables rule injection, and graceful cleanup.</li>
-    <li>Simulated attacks using Nmap and Hydra from a Kali machine and validated rule effectiveness by monitoring live drops and honeypot interactions.</li>
-    <li>Resolved false positives and tuning challenges to maintain service availability (e.g., port 80) while actively mitigating malicious behavior.</li>
-  </ul>
-  <p class="text-sm text-gray-300 mt-2"><strong>Key Technologies:</strong> Snort3 · Cowrie · IPTables · Bash Scripting · AWS EC2 · Hydra · Nmap · Honeypot · Intrusion Prevention</p>
-  <a href="https://github.com/loke173212/Snort-Cowrie-Intrusion-Prevention-Deception-Project" target="_blank" class="inline-block mt-3 text-blue-400 hover:underline text-sm">🔗 View GitHub Repository</a>
-</div>
-
-  <div class="card">
-   <h3 class="text-xl font-bold text-white">ThreatOps Lab – Real-Time Detection Pipeline using AWS and Splunk</h3>
-   <p class="text-sm text-gray-400">Role: Cybersecurity Analyst | Type: Hands-On Threat Detection Simulation | Date: May 2025</p>
-   <p class="text-sm text-gray-300 mt-2">Designed and deployed a full real-time detection pipeline to identify SSH brute-force attacks on an AWS EC2 instance.</p>
-   <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
-    <li>Configured CloudWatch Agent to collect <code>/var/log/secure</code> and stream logs to CloudWatch Logs.</li>
-    <li>Developed an AWS Lambda function to forward logs from CloudWatch to Splunk HEC over a secure Cloudflared tunnel.</li>
-    <li>Simulated attacks using Hydra and Nmap from Kali Linux and validated detection via SPL queries in Splunk.</li>
-    <li>Built visualizations including login outcome pie charts and high-frequency attacker IP reports.</li>
-    <li>Overcame limitations of traditional S3-based log shipping by tunneling HEC endpoints in real time.</li>
-   </ul>
-   <p class="text-sm text-gray-300 mt-2"><strong>Key Technologies:</strong> AWS EC2 · CloudWatch Agent · Lambda (Python) · Splunk HEC · Cloudflared · Hydra · Nmap · SPL · MITRE ATT&CK T1110</p>
-   <a href="https://github.com/loke173212/threatops-aws-splunk-detection" target="_blank" class="inline-block mt-3 text-blue-400 hover:underline text-sm">🔗 View GitHub Repository</a>
-  </div>
-
-  <div class="card">
-   <h3 class="text-xl font-bold text-white">WebRecon – Smart Wordlist & Email Reconnaissance Tool</h3>
-   <p class="text-sm text-gray-400">Associated With: Personal Offensive Security Project | Date: April 2025</p>
-   <p class="text-sm text-gray-300 mt-2">Developed WebRecon, a Python-based tool for intelligent web reconnaissance and OSINT automation. It crawls web pages (including IP-based targets), extracts custom wordlists, scrapes live emails, and smartly guesses potential email addresses using context from page content. Outputs are saved in structured folders for efficient analysis.</p>
-   <ul class="list-disc pl-5 mt-2 text-gray-300 text-sm space-y-1">
-    <li>Extracts and formats wordlists from live page content.</li>
-    <li>Performs live email scraping and smart guessing.</li>
-    <li>Supports scanning of domains, IPs, and local targets with output folder customization.</li>
-    <li>Designed CLI interface with flexible options for limit, depth, and output naming.</li>
-   </ul>
-   <p class="text-sm text-gray-300 mt-2"><strong>Key Technologies:</strong> Python · BeautifulSoup · argparse · Regex · Email Enumeration · OSINT · Web Crawling</p>
-   <a href="https://github.com/loke173212/WebRecon" target="_blank" class="inline-block mt-3 text-blue-400 hover:underline text-sm">🔗 View GitHub Repository</a>
-  </div>
- </div>
-</section>
-
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokesh Lankalapalli | Cybersecurity Portfolio</title>
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Contact -->
-  <section class="px-6 py-12 max-w-4xl mx-auto" id="contact">
-   <h2 class="text-3xl font-semibold mb-6 section-heading">Contact</h2>
-   <div class="space-y-2 text-lg text-gray-300">
-    <p>Email: <a class="text-blue-400 hover:underline" href="mailto:lankalapallilokesh20@gmail.com">lankalapallilokesh20@gmail.com</a></p>
-    <p>LinkedIn: <a class="text-blue-400 hover:underline" href="https://linkedin.com/in/lokesh-lankalapalli-549a10232" target="_blank">linkedin.com/in/lokesh-lankalapalli-549a10232</a></p>
-   </div>
-  </section>
-  <!-- Footer -->
-  <footer class="text-center py-6 text-sm text-gray-500 border-t border-gray-700 mt-12">
-   © 2025 Lokesh Lankalapalli. All rights reserved.
-  </footer>
- </body>
+    <style>
+        :root {
+            --dark-navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #e6f1ff;
+            --green: #64ffda;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-navy);
+            color: var(--light-slate);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--lightest-slate);
+        }
+
+        /* Particle.js Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Glassmorphism card effect */
+        .card {
+            background: rgba(17, 34, 64, 0.7); /* Translucent light-navy */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px rgba(100, 255, 218, 0.2);
+            border-color: rgba(100, 255, 218, 0.6);
+        }
+
+        /* Section heading style */
+        .section-heading {
+            color: var(--green);
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+        .section-heading::after {
+            content: '';
+            display: block;
+            position: relative;
+            top: 0px;
+            width: 100%;
+            max-width: 300px;
+            height: 1px;
+            margin-left: 20px;
+            background-color: var(--lightest-navy);
+        }
+
+        /* Timeline styling */
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            border-left: 2px solid var(--lightest-navy);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--dark-navy);
+            border: 2px solid var(--green);
+            transition: background-color: 0.3s ease;
+        }
+        .timeline-item:hover::before {
+            background-color: var(--green);
+        }
+
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Side floating elements */
+        .side-element {
+            display: none; /* Hidden on small screens */
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+        }
+        @media (min-width: 1024px) {
+            .side-element {
+                display: block;
+            }
+        }
+        .side-element.left {
+            left: 40px;
+            right: auto;
+        }
+        .side-element.right {
+            right: 40px;
+            left: auto;
+        }
+        .side-element ul, .side-element div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .side-element::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 90px;
+            margin: 0 auto;
+            background-color: var(--slate);
+        }
+        .side-element a {
+            transition: all 0.2s ease-in-out;
+        }
+        .side-element a:hover {
+            color: var(--green);
+            transform: translateY(-3px);
+        }
+        .email-link {
+            font-family: 'Roboto Mono', monospace;
+            writing-mode: vertical-rl;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+        }
+
+        /* Terminal styling */
+        #terminal {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #0000004d;
+            border: 1px solid var(--lightest-navy);
+            border-radius: 5px;
+            padding: 1.5rem;
+            height: 400px;
+            overflow-y: auto;
+            color: var(--lightest-slate);
+            line-height: 1.5;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        #terminal::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        .prompt::before {
+            content: 'user@lokesh.dev:~$ ';
+            color: var(--green);
+        }
+        .command-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--lightest-slate);
+            width: calc(100% - 190px); /* Adjust width based on prompt length */
+        }
+        .output {
+            white-space: pre-wrap;
+            margin-bottom: 0.5rem;
+        }
+        .output a {
+            color: var(--green);
+            text-decoration: underline;
+        }
+        .loader {
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid var(--green);
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <div id="particles-js"></div>
+
+    <div class="side-element left">
+        <ul>
+            <li><a href="https://github.com/loke173212" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a></li>
+            <li><a href="https://linkedin.com/in/lokesh-lankalapalli-549a10232" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a></li>
+        </ul>
+    </div>
+    <div class="side-element right">
+        <div>
+            <a href="mailto:lankalapallilokesh20@gmail.com" class="email-link">lankalapallilokesh20@gmail.com</a>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 z-50 py-4 px-8 bg-slate-900/80 backdrop-blur-md shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold font-mono text-[var(--green)]">LL</a>
+            <div class="hidden md:flex items-center space-x-6 text-sm">
+                <a href="#about" class="hover:text-[var(--green)] transition-colors duration-300"><span class="text-[var(--green)]">01.</span> About</a>
+                <a href="#experience" class="hover:text-[var(--green)] transition-colors duration-300"><span class="text-[var(--green)]">02.</span> Experience</a>
+                <a href="#education" class="hover:text-[var(--green)] transition-colors duration-300"><span class="text-[var(--green)]">03.</span> Education</a>
+                <a href="#skills" class="hover:text-[var(--green)] transition-colors duration-300"><span class="text-[var(--green)]">04.</span> Skills</a>
+                <a href="#projects" class="hover:text-[var(--green)] transition-colors duration-300"><span class="text-[var(--green)]">05.</span> Projects</a>
+                <a href="#contact" class="hover:text-[var(--green)] transition-colors duration-300"><span class="text-[var(--green)]">06.</span> Contact</a>
+                <a href="https://loke173212.github.io/portfolio/Lokesh_Lankalapalli_Resume.pdf" target="_blank" class="border border-[var(--green)] text-[var(--green)] px-4 py-2 rounded text-sm hover:bg-[var(--green)]/10 transition-colors duration-300">
+                    Resume
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto p-4 md:p-8">
+        <section id="hero" class="min-h-[80vh] flex flex-col justify-center py-20">
+            <p class="text-[var(--green)] font-mono mb-4">Welcome to my terminal.</p>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold text-[var(--lightest-slate)]">Lokesh Lankalapalli.</h1>
+            <h2 class="text-3xl sm:text-5xl md:text-6xl font-bold text-[var(--slate)] mt-2">I build & secure things for the web.</h2>
+            <div id="terminal" class="mt-8" onclick="document.getElementById('command-input').focus()">
+                <div id="terminal-output"></div>
+                <div class="prompt">
+                    <input type="text" id="command-input" class="command-input" autofocus autocomplete="off" spellcheck="false" />
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 reveal">
+            <h2 class="section-heading text-2xl mb-8">01. About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-3 text-[var(--slate)] space-y-4">
+                    <p>
+                        I'm Lokesh Lankalapalli, a passionate cybersecurity professional with experience in Vulnerability Assessment and Penetration Testing (VAPT). I hold certifications in <span class="text-[var(--green)]">CEHv11</span>, <span class="text-[var(--green)]">Security+</span>, and <span class="text-[var(--green)]">eJPTv2</span> and am currently pursuing my MS in Information Technology - Security at ASU.
+                    </p>
+                </div>
+                 <div class="md:col-span-2 relative">
+                    <div class="w-full h-80 bg-gray-300 rounded-lg border-2 border-[var(--green)] group hover:border-transparent transition duration-300">
+                        <img src="https://placehold.co/400x480/0a192f/64ffda?text=Lokesh" alt="Lokesh Lankalapalli" class="w-full h-full object-cover rounded-md grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-24 reveal">
+            <h2 class="section-heading text-2xl mb-12">02. Experience</h2>
+            <div class="space-y-12">
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-[var(--lightest-slate)]">Application Security Developer</h3>
+                    <p class="text-[var(--green)] mb-2">MaxGPT – AI-Powered Educational Chatbot @ ASU</p>
+                    <p class="text-sm text-[var(--slate)] font-mono mb-4">Jan 2025 – Present | Python · JavaScript · CAS · MySQL · OpenAI GPT-4</p>
+                    <ul class="list-disc list-inside text-[var(--slate)] space-y-2 text-sm pl-2">
+                        <li>Designed and implemented custom session management logic from scratch to maintain user state securely across the frontend and backend.</li>
+                        <li>Integrated ASU’s Central Authentication Service (CAS) for single sign-on, enabling seamless and secure login via ASURITE ID.</li>
+                        <li>In Version 1.0, developed manual session validation mechanisms, requiring users to re-verify their session after page reloads to ensure session integrity.</li>
+                        <li>In Version 1.1, transitioned to an automated session verification model, improving both security and user experience by syncing session status on app load and during chat activity.</li>
+                        <li>Ensured all key routes and features were gated behind active session checks, reducing risk of unauthorized access.</li>
+                        <li>Collaborated cross-functionally with backend developer to enforce consistent session and authentication rules across the stack.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-[var(--lightest-slate)]">VAPT Intern (Remote)</h3>
+                    <p class="text-[var(--green)] mb-2">CyberSmith Secure, India</p>
+                    <p class="text-sm text-[var(--slate)] font-mono mb-4">Sep 2023 – Dec 2023</p>
+                    <ul class="list-disc list-inside text-[var(--slate)] space-y-2 text-sm pl-2">
+                        <li>Created vulnerability reports for government websites; identified XSS and HTML Injection flaws.</li>
+                        <li>Performed security testing on the HP website to mitigate text injection vulnerabilities.</li>
+                        <li>Utilized Burp Suite and Nessus for vulnerability scanning and monitoring.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-24 reveal">
+            <h2 class="section-heading text-2xl mb-12">03. Education</h2>
+            <div class="space-y-12">
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-[var(--lightest-slate)]">Arizona State University</h3>
+                    <p class="text-[var(--green)] mb-2">Master of Science in Information Technology – Security</p>
+                    <p class="text-sm text-[var(--slate)] font-mono mb-4">Expected Graduation: 2025</p>
+                    <div class="text-sm text-[var(--slate)] space-y-3">
+                        <div>
+                            <h4 class="font-bold text-[var(--light-slate)]">Spring 2024:</h4>
+                            <ul class="list-disc list-inside pl-2">
+                                <li>IFT 510: Principles of Computer and Information Technology Architecture</li>
+                                <li>IFT 520: Advanced Information Systems Security</li>
+                                <li>IFT 540: Information Systems Development</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-[var(--light-slate)]">Fall 2024:</h4>
+                            <ul class="list-disc list-inside pl-2">
+                                <li>IFT 530: Advanced Database Management Systems</li>
+                                <li>IFT 560: Cloud Architecture for Information Technology</li>
+                                <li>IFT 543: Security Compliance for Information Technology</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-[var(--light-slate)]">Spring 2025:</h4>
+                            <ul class="list-disc list-inside pl-2">
+                                <li>IFT 523: Network Forensics for Information Technology</li>
+                                <li>IFT 562: Cloud Security and Operations for Information</li>
+                                <li>TEM 598: Technology Innovation Lab (Collaborated with Honeywell)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-[var(--lightest-slate)]">Jawaharlal Nehru Technological University</h3>
+                    <p class="text-[var(--green)] mb-2">Bachelor of Technology in Electronics and Communication Engineering</p>
+                    <p class="text-sm text-[var(--slate)] font-mono mb-4">Graduated: 2023</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="py-24 reveal">
+            <h2 class="section-heading text-2xl mb-8">04. Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold text-[var(--lightest-slate)] mb-4">Programming</h3>
+                    <p class="text-[var(--slate)]">Python, C, C++, HTML, CSS, JavaScript, SQL</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-[var(--lightest-slate)] mb-4">Platforms</h3>
+                    <p class="text-[var(--slate)]">HackTheBox (Hacker Rank), TryHackMe (Top 3 in ASU Workspace)</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-[var(--lightest-slate)] mb-4">Tools</h3>
+                    <p class="text-[var(--slate)]">Nmap, Metasploit, Burp Suite, Wireshark, Netcat, Nessus, Nikto, John the Ripper, Ettercap, Hashcat, SIEM</p>
+                </div>
+                 <div>
+                    <h3 class="text-lg font-bold text-[var(--lightest-slate)] mb-4">Security Concepts</h3>
+                    <p class="text-[var(--slate)]">Network Protocols (TCP/IP), OSI Layer, Vulnerability Analysis, Pentesting, Web & Network Security, SOC, AWS, Incident Response, Security Controls, Firewall</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="py-24 reveal">
+            <h2 class="section-heading text-2xl mb-8">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card p-6">
+                    <h3 class="font-bold text-lg text-[var(--lightest-slate)]">EC Council CEHv11</h3>
+                    <p class="text-sm text-[var(--slate)]">Certified Ethical Hacker</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="font-bold text-lg text-[var(--lightest-slate)]">CompTIA Security+</h3>
+                    <p class="text-sm text-[var(--slate)]">Cybersecurity Fundamentals</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="font-bold text-lg text-[var(--lightest-slate)]">eJPTv2</h3>
+                    <p class="text-sm text-[var(--slate)]">Junior Penetration Tester</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="font-bold text-lg text-[var(--lightest-slate)]">AWS Certified Solutions Architect – Associate</h3>
+                    <p class="text-sm text-[var(--slate)]">Cloud Architecture & Deployment</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="projects" class="py-24 reveal">
+            <h2 class="section-heading text-2xl mb-8">05. Projects</h2>
+            <div class="space-y-12">
+                <!-- Project 1 -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-1">Snort-Cowrie Intrusion Prevention & Deception Project</h3>
+                    <p class="font-mono text-sm text-[var(--green)] mb-3">Role: Security Engineer | Jun 2025</p>
+                    <p class="text-sm text-[var(--slate)] mb-4">Designed and deployed a full-stack intrusion prevention and deception system on an AWS EC2 instance using Snort3 and Cowrie honeypot. Developed custom Snort rules to drop port scans and SSH brute-force attempts with real-time packet blocking via NFQUEUE.</p>
+                    <footer class="flex justify-between items-center">
+                        <p class="text-xs font-mono text-[var(--slate)]">Snort3 · Cowrie · IPTables · Bash · AWS EC2 · Honeypot</p>
+                        <a href="https://github.com/loke173212/Snort-Cowrie-Intrusion-Prevention-Deception-Project" target="_blank" class="text-[var(--slate)] hover:text-[var(--green)]"><i class="fab fa-github text-xl"></i></a>
+                    </footer>
+                </div>
+                <!-- Project 2 -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-1">ThreatOps Lab – Real-Time Detection Pipeline</h3>
+                    <p class="font-mono text-sm text-[var(--green)] mb-3">Role: Cybersecurity Analyst | May 2025</p>
+                    <p class="text-sm text-[var(--slate)] mb-4">Designed and deployed a full real-time detection pipeline to identify SSH brute-force attacks on an AWS EC2 instance. Configured CloudWatch Agent to stream logs to an AWS Lambda function, which forwarded them to Splunk HEC over a secure Cloudflared tunnel for analysis and visualization.</p>
+                    <footer class="flex justify-between items-center">
+                        <p class="text-xs font-mono text-[var(--slate)]">AWS EC2 · Lambda · Splunk · Cloudflared · Python · MITRE ATT&CK</p>
+                        <a href="https://github.com/loke173212/threatops-aws-splunk-detection" target="_blank" class="text-[var(--slate)] hover:text-[var(--green)]"><i class="fab fa-github text-xl"></i></a>
+                    </footer>
+                </div>
+                <!-- Project 3 -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-1">WebRecon – Smart Wordlist & Email Reconnaissance Tool</h3>
+                    <p class="font-mono text-sm text-[var(--green)] mb-3">Role: Developer | Apr 2025</p>
+                    <p class="text-sm text-[var(--slate)] mb-4">Developed WebRecon, a Python-based tool for intelligent web reconnaissance and OSINT automation. It crawls web pages, extracts custom wordlists, scrapes live emails, and smartly guesses potential email addresses using context from page content.</p>
+                    <footer class="flex justify-between items-center">
+                        <p class="text-xs font-mono text-[var(--slate)]">Python · BeautifulSoup · argparse · Regex · OSINT</p>
+                        <a href="https://github.com/loke173212/WebRecon" target="_blank" class="text-[var(--slate)] hover:text-[var(--green)]"><i class="fab fa-github text-xl"></i></a>
+                    </footer>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 text-center reveal">
+            <h2 class="section-heading text-lg mb-4 justify-center">06. What's Next?</h2>
+            <h3 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h3>
+            <p class="max-w-xl mx-auto text-[var(--slate)] mb-8">
+                I'm currently seeking new opportunities in cybersecurity and am always open to connecting with fellow professionals. Whether you have a question, a potential role, or just want to say hi, my inbox is always open.
+            </p>
+            <a href="mailto:lankalapallilokesh20@gmail.com" class="inline-block border border-[var(--green)] text-[var(--green)] px-8 py-4 rounded text-lg hover:bg-[var(--green)]/10 transition-colors duration-300">
+                Say Hello
+            </a>
+        </section>
+    </main>
+
+    <footer class="text-center py-6 text-sm text-[var(--slate)]">
+        <p class="font-mono text-xs">Designed & Built by Lokesh Lankalapalli</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        // --- No API Key needed in the frontend anymore! ---
+        
+        // --- Particle.js Configuration ---
+        particlesJS("particles-js", {
+          "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#64ffda" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": false }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#8892b0", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" } },
+          "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } } },
+          "retina_detect": true
+        });
+
+        // --- Intersection Observer for scroll animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- Terminal Elements and Logic ---
+        const terminalOutput = document.getElementById('terminal-output');
+        const commandInput = document.getElementById('command-input');
+        const terminal = document.getElementById('terminal');
+
+        // --- Factual Context Block for Grounding the AI ---
+        const lokeshContext = `
+            About Lokesh Lankalapalli:
+            Lokesh is a passionate cybersecurity professional with experience in Vulnerability Assessment and Penetration Testing (VAPT). He holds certifications in CEHv11, Security+, and eJPTv2 and is currently pursuing his MS in Information Technology - Security at ASU.
+
+            Education:
+            - Arizona State University, Master of Science in Information Technology – Security (Expected Graduation: 2025)
+              - Spring 2024 Courses: IFT 510, IFT 520, IFT 540
+              - Fall 2024 Courses: IFT 530, IFT 560, IFT 543
+              - Spring 2025 Courses: IFT 523, IFT 562, TEM 598 (with Honeywell)
+            - Jawaharlal Nehru Technological University, Bachelor of Technology in Electronics and Communication Engineering (Graduated: 2023)
+
+            Experience:
+            1. Application Security Developer at MaxGPT (ASU) - Jan 2025 to Present:
+               - Technologies: Python, JavaScript, CAS, MySQL, OpenAI GPT-4
+               - Responsibilities: Designed custom session management logic, integrated ASU’s CAS for single sign-on, developed manual and automated session verification models, and gated key routes behind session checks.
+            2. VAPT Intern at CyberSmith Secure - Sep 2023 to Dec 2023:
+               - Responsibilities: Created vulnerability reports for government websites (found XSS, HTML Injection), performed security testing on the HP website, and used Burp Suite and Nessus.
+
+            Technical Skills:
+            - Programming: Python, C, C++, HTML, CSS, JavaScript, SQL
+            - Platforms: HackTheBox (Hacker Rank), TryHackMe (Top 3 in ASU Workspace)
+            - Tools: Nmap, Metasploit, Burp Suite, Wireshark, Netcat, Nessus, Nikto, John the Ripper, Ettercap, Hashcat, SIEM
+            - Security Concepts: Network Protocols (TCP/IP), OSI Layer, Vulnerability Analysis, Pentesting, Web Security, Network Security, SOC, AWS, Incident Response, Security Controls, Firewall
+
+            Certifications:
+            - EC Council CEHv11 (Certified Ethical Hacker)
+            - CompTIA Security+
+            - eJPTv2 (Junior Penetration Tester)
+            - Microsoft MTA Security Fundamentals
+            - AWS Certified Solutions Architect – Associate
+
+            Projects:
+            1. Snort-Cowrie Intrusion Prevention & Deception Project (Jun 2025):
+               - Role: Security Engineer
+               - Description: Deployed a full-stack IPS and honeypot on AWS EC2 using Snort3 and Cowrie. Wrote custom rules to block port scans and SSH brute-force attacks in real-time.
+               - Technologies: Snort3, Cowrie, IPTables, Bash Scripting, AWS EC2, Hydra, Nmap.
+            2. ThreatOps Lab – Real-Time Detection Pipeline (May 2025):
+               - Role: Cybersecurity Analyst
+               - Description: Built a real-time detection pipeline for SSH brute-force attacks on AWS. Streamed logs from EC2 via CloudWatch and Lambda to Splunk for analysis.
+               - Technologies: AWS EC2, CloudWatch, Lambda (Python), Splunk HEC, Cloudflared, MITRE ATT&CK T1110.
+            3. WebRecon – Smart Reconnaissance Tool (April 2025):
+               - Role: Developer
+               - Description: A Python OSINT tool that crawls web pages to extract custom wordlists and find/guess email addresses.
+               - Technologies: Python, BeautifulSoup, argparse, Regex.
+        `;
+
+
+        // --- Secure API Call Function ---
+        async function callGemini(userQuery, systemPrompt) {
+            // This is the relative endpoint for our secure Netlify function.
+            const FUNCTION_URL = '/.netlify/functions/ask-gemini';
+
+            try {
+                const response = await fetch(FUNCTION_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userQuery, systemPrompt }),
+                });
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || `Serverless function failed with status: ${response.status}`);
+                }
+                const result = await response.json();
+                return result.response || "Sorry, I couldn't get a valid response from the assistant.";
+            } catch (error) {
+                console.error("Secure API call error:", error);
+                return `Error: Could not connect to the AI assistant. ${error.message}`;
+            }
+        }
+
+
+        // --- Terminal Command Definitions ---
+        const commands = {
+            help: `Available commands:
+  <span class="text-[var(--green)]">ask &lt;question&gt;</span>     - Ask the AI assistant a question about Lokesh
+  <span class="text-[var(--green)]">whois</span>             - Display information about me
+  <span class="text-[var(--green)]">experience</span>        - Scroll to experience section
+  <span class="text-[var(--green)]">education</span>         - Scroll to education section
+  <span class="text-[var(--green)]">skills</span>            - Scroll to skills section
+  <span class="text-[var(--green)]">projects</span>          - List my recent projects
+  <span class="text-[var(--green)]">contact</span>           - Show my contact information
+  <span class="text-[var(--green)]">resume</span>            - Open my resume in a new tab
+  <span class="text-[var(--green)]">clear</span>             - Clear the terminal`,
+            whois: `Lokesh Lankalapalli. Cybersecurity Student & Practitioner.
+Passionate about VAPT, cloud security, and ethical hacking. Currently pursuing an M.S. in IT at ASU. For more, type 'scroll to about'.`,
+            experience: `Scrolling to experience...`,
+            education: `Scrolling to education...`,
+            skills: `Scrolling to skills...`,
+            projects: `Fetching projects...
+1. <a href="https://github.com/loke173212/Snort-Cowrie-Intrusion-Prevention-Deception-Project" target="_blank" class="hover:underline">Snort-Cowrie IPS & Honeypot</a>
+2. <a href="https://github.com/loke173212/threatops-aws-splunk-detection" target="_blank" class="hover:underline">ThreatOps Detection Lab</a>
+3. <a href="https://github.com/loke173212/WebRecon" target="_blank" class="hover:underline">WebRecon OSINT Tool</a>
+To see them visually, type 'scroll to projects'.`,
+            contact: `You can reach me at <a href="mailto:lankalapallilokesh20@gmail.com" class="hover:underline">lankalapallilokesh20@gmail.com</a>.
+Or type 'scroll to contact' to go to the contact section.`,
+            resume: 'Opening resume...',
+            clear: ''
+        };
+
+        const executeCommand = async (cmd) => {
+            const command = cmd.toLowerCase().trim();
+            const history = document.createElement('div');
+            history.innerHTML = `<span class="prompt"></span>${cmd}`;
+            terminalOutput.appendChild(history);
+
+            if (command.startsWith('scroll to ')) {
+                const section = command.substring(10);
+                const sectionElement = document.getElementById(section);
+                if (sectionElement) {
+                    sectionElement.scrollIntoView({ behavior: 'smooth' });
+                    printOutput(`Scrolling to ${section}...`);
+                } else {
+                    printOutput(`-bash: section not found: ${section}`);
+                }
+            } else if (command.startsWith('ask ')) {
+                const question = cmd.substring(4).trim();
+                if (question) {
+                    const loadingMsg = printOutput(` <div class="loader"></div> LL-Term is thinking...`);
+                    
+                    const systemPrompt = "You are an AI assistant in Lokesh Lankalapalli's portfolio. Your ONLY purpose is to answer questions about Lokesh based on the provided CONTEXT. If the user asks a question that is NOT about Lokesh or cannot be answered from the CONTEXT, you MUST respond with the exact phrase: \"That's a great question, but it could be even greater if you ask about Lokesh.\" Do not answer general knowledge questions. Format your response for a terminal, using spacing and line breaks but not markdown.";
+                    
+                    const fullQuery = `CONTEXT:\n${lokeshContext}\n\nQUESTION: ${question}`;
+                    
+                    const response = await callGemini(fullQuery, systemPrompt);
+                    loadingMsg.innerHTML = response;
+                } else {
+                    printOutput("Usage: ask <your question>");
+                }
+            } else if (commands[command]) {
+                const commandOutput = commands[command];
+                if (command === 'clear') {
+                    terminalOutput.innerHTML = '';
+                } else {
+                    printOutput(commandOutput);
+                    if (command === 'resume') {
+                        window.open('https://loke173212.github.io/portfolio/Lokesh_Lankalapalli_Resume.pdf', '_blank');
+                    }
+                    const scrollableCommands = ['experience', 'education', 'skills', 'projects', 'contact', 'about'];
+                    if(scrollableCommands.includes(command)){
+                         document.getElementById(command).scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            } else if (command !== '') {
+                printOutput(`-bash: ${command}: command not found. Type 'help' for a list of commands.`);
+            }
+
+            commandInput.value = '';
+            terminal.scrollTop = terminal.scrollHeight;
+        };
+        
+        const printOutput = (output) => {
+            const outputDiv = document.createElement('div');
+            outputDiv.innerHTML = output;
+            outputDiv.classList.add('output');
+            terminalOutput.appendChild(outputDiv);
+            terminal.scrollTop = terminal.scrollHeight;
+            return outputDiv;
+        };
+
+        commandInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                executeCommand(commandInput.value);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const welcomeMessage = "Welcome to my interactive terminal.\nType 'help' to see the list of available commands.";
+            printOutput(welcomeMessage);
+        });
+    </script>
+</body>
 </html>
+
