@@ -1,46 +1,44 @@
 exports.handler = async function (event, context) {
-  // 1. Setup CORS Headers (Allows your website to talk to this function)
+  // 1. CORS Headers (Allows your website to access this function)
   const headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
   };
 
-  // 2. Handle the "Preflight" check (Browser asks: "Can I send data here?")
+  // 2. Handle "Options" check (Browser pre-flight)
   if (event.httpMethod === "OPTIONS") {
     return { statusCode: 200, headers, body: "OK" };
   }
 
-  // 3. Security check: Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers, body: 'Method Not Allowed' };
   }
 
   try {
-    // 4. Parse the incoming data
     const { userQuery, systemPrompt } = JSON.parse(event.body);
     
-    // 5. Check API Key
-    const apiKey = process.env.GEMINI_API_KEY;
+    // 3. FIX: Trim whitespace from key to prevent URL breakage
+    const apiKey = process.env.GEMINI_API_KEY ? process.env.GEMINI_API_KEY.trim() : "";
+    
     if (!apiKey) {
-      console.error("Missing GEMINI_API_KEY environment variable");
+      console.error("Error: GEMINI_API_KEY is missing.");
       return {
         statusCode: 500,
         headers,
-        body: JSON.stringify({ error: "Server configuration error (Missing API Key)" }),
+        body: JSON.stringify({ error: "Server Error: API Key is missing." }),
       };
     }
 
-    // 6. FIXED: Use the correct, stable model name (gemini-1.5-flash)
-    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    // 4. FIX: Use 'gemini-1.5-flash-latest' which is often more stable for direct URL calls
+    // If this still fails, try 'gemini-pro'
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
 
     const payload = {
       contents: [{ parts: [{ text: userQuery }] }],
-      // 'systemInstruction' works with gemini-1.5-flash and pro
       systemInstruction: { parts: [{ text: systemPrompt }] },
     };
 
-    // 7. Call Gemini API
     const response = await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -48,12 +46,14 @@ exports.handler = async function (event, context) {
     });
 
     if (!response.ok) {
+      // Log the exact error from Google for debugging
       const errorText = await response.text();
-      console.error("Gemini API Error:", errorText);
+      console.error(`Gemini API Error (${response.status}):`, errorText);
+      
       return {
         statusCode: response.status,
         headers,
-        body: JSON.stringify({ error: `Gemini API Error: ${response.statusText}` }),
+        body: JSON.stringify({ error: `Gemini API Error: ${response.status} ${response.statusText}` }),
       };
     }
 
